@@ -6,7 +6,7 @@
 [GitHub Pages](https://trcp.github.io/fcsc-team-intro/) を開いてください。
 
 #### オフライン
-[Releases](https://github.com/trcp/fcsc-team-intro/releases) から `slides.html.zip` をダウンロードし、解凍して `slides.html` をブラウザで開いてください。
+[Releases](https://github.com/trcp/fcsc-team-intro/releases) から `slides.html.zip` をダウンロードし、解凍して `index.html` をブラウザで開いてください。
 
 ### ローカルファイルのプレビュー
 
