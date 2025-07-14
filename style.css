@@ -1,0 +1,96 @@
+/* @theme style */
+@import "default";
+
+:root {
+    --circle-diameter: auto;
+}
+
+section {
+    font-size: 34px;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.small {
+    font-size: 0.8em;
+}
+
+.gray {
+    color: gray;
+}
+
+.title {
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.circle-background {
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    vertical-align: top;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    padding: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    background-color: #1d50a2;
+    border-radius: 50%;
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 0.8em;
+}
+
+.circle-background b,
+.circle-background strong {
+    font-size: 1.4em;
+}
+
+.rectangle-background {
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    vertical-align: top;
+    justify-content: center;
+    padding: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    background-color: #1d50a2;
+    /* border-radius: 5%; */
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 0.8em;
+}
+
+.rectangle-background b,
+.rectangle-background strong {
+    font-size: 1.4em;
+}
+
+img[src*='#center'] {
+    display: block;
+    margin: auto;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: fixed;
+    width: 80%;
+    display: table;
+}
+
+section::after {
+    background-color: #FFFFFF;
+    padding: 0.25em;
+}
