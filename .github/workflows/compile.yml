@@ -1,0 +1,37 @@
+name: Release Slides
+
+on:
+  push:
+    tags:
+      - "*"
+
+env:
+  SLIDE_FILE: slides.md
+  STYLE_FILE: style.css
+  OUTPUT_DIR: out
+  TITLE: "FCSC Team Introduction"
+  AUTHOR: "eR@sers"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
+
+      - name : Create output directory
+        run: mkdir -p ${{ env.OUTPUT_DIR }}
+
+      - name: Compile slides to HTML
+        run: marp --html --allow-local-files --theme ${{ env.STYLE_FILE }} --title "${{ env.TITLE }}" --author "${{ env.AUTHOR }}" ${{ env.SLIDE_FILE }} -o ${{ env.OUTPUT_DIR }}/slides.html
+
+      - name: Compile slides to PDF
+        run: marp --pdf --allow-local-files --theme ${{ env.STYLE_FILE }} --title "${{ env.TITLE }}" --author "${{ env.AUTHOR }}" ${{ env.SLIDE_FILE }} -o ${{ env.OUTPUT_DIR }}/slides.pdf
+
+      - name: Release slides
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.OUTPUT_DIR }}/*
