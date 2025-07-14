@@ -38,7 +38,7 @@ jobs:
         run: mkdir -p ${{ env.OUTPUT_DIR }}
 
       - name: Compile slides to HTML
-        run: marp --html --allow-local-files --theme ${{ env.STYLE_FILE }} --title "${{ env.TITLE }}" --author "${{ env.AUTHOR }}" ${{ env.SLIDE_FILE }} -o ${{ env.OUTPUT_DIR }}/html/slides.html
+        run: marp --html --allow-local-files --theme ${{ env.STYLE_FILE }} --title "${{ env.TITLE }}" --author "${{ env.AUTHOR }}" ${{ env.SLIDE_FILE }} -o ${{ env.OUTPUT_DIR }}/html/index.html
       
       - name: Copy HTML assets
         run: cp -r images ${{ env.OUTPUT_DIR }}/html/images
