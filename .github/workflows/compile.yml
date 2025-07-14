@@ -6,7 +6,13 @@ on:
       - "*"
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 env:
   SLIDE_FILE: slides.md
@@ -17,6 +23,9 @@ env:
 
 jobs:
   publish:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -33,6 +42,16 @@ jobs:
       
       - name: Copy HTML assets
         run: cp -r images ${{ env.OUTPUT_DIR }}/html/images
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.OUTPUT_DIR }}/html
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Compress HTML output (`html/` to `slides.html.zip`)
         run: zip -r ${{ env.OUTPUT_DIR }}/slides.html.zip ${{ env.OUTPUT_DIR }}/html && rm -r ${{ env.OUTPUT_DIR }}/html
