@@ -1,10 +1,6 @@
 /* @theme style */
 @import "default";
 
-:root {
-    --circle-diameter: auto;
-}
-
 section {
     font-size: 34px;
 }
@@ -48,26 +44,24 @@ section {
     border-radius: 50%;
     color: #fff;
     box-sizing: border-box;
-    font-size: 0.8em;
+    font-size: 0.7em;
 }
 
 .circle-background b,
 .circle-background strong {
-    font-size: 1.4em;
+    font-size: 1.5em;
 }
 
 .rectangle-background {
     display: inline-flex;
     text-align: center;
+    border-bottom: #1d50a2 solid 0.1em;
     align-items: center;
     vertical-align: top;
     justify-content: center;
-    padding: 1em;
+    padding: 0.3em 2em 0em 2em;
     margin-right: 1em;
     margin-bottom: 1em;
-    background-color: #1d50a2;
-    /* border-radius: 5%; */
-    color: #fff;
     box-sizing: border-box;
     font-size: 0.8em;
 }
@@ -75,6 +69,7 @@ section {
 .rectangle-background b,
 .rectangle-background strong {
     font-size: 1.4em;
+        color: #1d50a2;
 }
 
 img[src*='#center'] {
@@ -90,6 +85,10 @@ table {
     display: table;
 }
 
+section {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
 section::after {
     background-color: #FFFFFF;
     padding: 0.25em;
